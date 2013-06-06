@@ -9,3 +9,7 @@ $ ->
 	        theme: "default",
 	        extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
 	      })
+
+	$('#story_theme').change ->
+		editor.setOption("theme",$(this).val())
+

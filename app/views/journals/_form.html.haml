@@ -1,9 +1,13 @@
 = form_for @journal, :html => { :class => 'form-horizontal' } do |f|
   %div.control-group
-    = f.label :story, :class => 'control-label'
+    %label{:for => 'story_theme', :class => 'control-label'} 
+      =t 'theme'
+    %div.controls
+      = select("story", "theme", ["default","ambiance","blackboard","cobalt","eclipse","elegant","erlang-dark","lesser-dark","midnight","monokai","neat","night","rubyblue","solarized dark", "solarized light","twilight","vibrant-ink","xq-dark","xq-light"])
+  %div.control-group
     %div.controls.span6
-      = f.text_area :story, :class => 'text_area span6', :rows => "15"
-
+      = f.text_area :story, :class => 'text_area span6', :rows => "15"  
+  
   %div.form-actions
     = f.submit nil, :class => 'btn btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")),
