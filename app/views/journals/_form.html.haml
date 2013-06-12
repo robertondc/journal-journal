@@ -7,7 +7,7 @@
   %div.control-group
     %div.controls.span6
       = f.text_area :story, class: 'text_area span6', rows: '15', data: {'book-parser-url' => book_parser_path }
-    %div.span6
+    %div#content-output.span6
   
   %div.form-actions
     = f.submit nil, :class => 'btn btn-primary'

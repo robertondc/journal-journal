@@ -20,14 +20,9 @@ $ ->
 	
 	editor.on("change", (instance,changeObj) ->
 		callback = -> 
-					console.log($('#journal_story').data('book-parser-url'))
-					console.log(editor.getValue())
-					console.log($.param(editor.getValue()))
+					$.get($('#journal_story').data('book-parser-url'), {content: editor.getValue()})
 		delayCallback('editor',callback,1000)
 	)
 
 	$('#story_theme').change ->
 		editor.setOption("theme",$(this).val())
-
-
-
