@@ -1,6 +1,7 @@
 JournalJournal::Application.routes.draw do
 
   resources :journals
+  match 'book_parser' => 'book_parser#index', :as => :book_parser, :via => 'GET'
 
 
   # The priority is based upon order of creation:

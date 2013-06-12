@@ -10,6 +10,24 @@ $ ->
 	        extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
 	      })
 
+	# to decrease parser requests
+	# must to execute the callback after a delay time and
+	# remains only the last change until delay
+	delayCallback = (queueName = 'default',callback,time = 1000) ->
+		@delayQueues = {} if !@delayQueues?
+		clearInterval(@delayQueues[queueName])
+		@delayQueues[queueName] = setTimeout(callback,time)
+	
+	editor.on("change", (instance,changeObj) ->
+		callback = -> 
+					console.log($('#journal_story').data('book-parser-url'))
+					console.log(editor.getValue())
+					console.log($.param(editor.getValue()))
+		delayCallback('editor',callback,1000)
+	)
+
 	$('#story_theme').change ->
 		editor.setOption("theme",$(this).val())
+
+
 
