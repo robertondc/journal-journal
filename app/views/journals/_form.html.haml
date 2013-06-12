@@ -6,7 +6,7 @@
       = select("story", "theme", ["default","ambiance","blackboard","cobalt","eclipse","elegant","erlang-dark","lesser-dark","midnight","monokai","neat","night","rubyblue","solarized dark", "solarized light","twilight","vibrant-ink","xq-dark","xq-light"])
   %div.control-group
     %div.controls.span6
-      = f.text_area :story, class: 'text_area span6', rows: '15', data: {'book-parser-url' => book_parser_path }
+      = f.text_area :content, class: 'text_area span6', rows: '15', data: {'book-parser-url' => book_parser_path }
     %div#content-output.span6
   
   %div.form-actions

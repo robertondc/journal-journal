@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-	editor = CodeMirror.fromTextArea($("#journal_story").get(0), {
+	editor = CodeMirror.fromTextArea($("#journal_content").get(0), {
 	        mode: 'markdown',
 	        lineNumbers: true,
 	        theme: "default",
@@ -20,7 +20,7 @@ $ ->
 	
 	editor.on("change", (instance,changeObj) ->
 		callback = -> 
-					$.get($('#journal_story').data('book-parser-url'), {content: editor.getValue()})
+					$.get($('#journal_content').data('book-parser-url'), {content: editor.getValue()})
 		delayCallback('editor',callback,1000)
 	)
 
